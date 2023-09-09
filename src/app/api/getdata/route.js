@@ -9,8 +9,7 @@ export async function GET(request, response) {
     try{
         await connectMongoDB();
         const data = await Product.find();
-        console.log("data",data)
-        return NextResponse(JSON.stringify(data), { status: 200})
+        return NextResponse.json({ data })
     }
     catch(err){
         return new NextResponse("eeror in fetching data"+ err, { status: 500})
