@@ -25,7 +25,7 @@ export const useProductsStore = create<State & Actions>(set => ({
 	fetchData: async () => {
         try {
          set({ isLoading: true, error: null })
-         const response = await fetch("http://localhost:3000/api/getdata")
+         const response = await fetch("/api/getdata")
          const data = await response.json()
          set({ products: data, isLoading: false })
         } catch (error) {

@@ -58,9 +58,9 @@ const INITIAL_STATE: State = {
    }
   },
   removeFromCart: (product: Product) => {
-   set(state => ({
+    set(state => ({
     cart: state.cart.filter(item => item.id !== product.id),
-    totalItems: state.totalItems - 1,
+    totalItems: state.totalItems - product.quantity,
     totalPrice: state.totalPrice - product.price as number,
    }))
   },
